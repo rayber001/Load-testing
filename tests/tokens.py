@@ -1,9 +1,12 @@
 from locust import task, HttpUser, events
 from locust.runners import STATE_STOPPING, STATE_STOPPED, STATE_CLEANUP, WorkerRunner
+from urllib3.exceptions import InsecureRequestWarning
+from urllib3 import disable_warnings
 import requests
 import argparse
 import time
 import gevent
+disable_warnings(InsecureRequestWarning)
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-H', '--host')

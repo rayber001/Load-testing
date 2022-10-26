@@ -1,7 +1,10 @@
 from locust import task, HttpUser, events
 from locust.runners import STATE_STOPPING, STATE_STOPPED, STATE_CLEANUP, WorkerRunner
+from urllib3.exceptions import InsecureRequestWarning
+from urllib3 import disable_warnings
 import time
 import gevent
+disable_warnings(InsecureRequestWarning)
 
 routes = [
     'register/',
